@@ -3,14 +3,16 @@ type TextInputType = {
     value?: string;
     placeholder: string;
     disabled: boolean;
+    borderLess?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const TextInput = ({ 
+const TextInput = ({
     id,
     value,
-    placeholder, 
-    disabled, 
+    placeholder,
+    disabled,
+    borderLess = false,
     onChange
 }: TextInputType): React.ReactElement => {
     return (
@@ -18,9 +20,9 @@ const TextInput = ({
             id={id}
             value={value}
             type="text"
-            className="mt-2 p-3 rounded-lg border border-black text-base w-full"
+            className={`mt-3 rounded-lg text-base text-gray-600 w-full ${borderLess ? "border-0 focus:outline-0 px-1": "border border-gray p-3"}`}
             placeholder={placeholder}
-            disabled={disabled} 
+            disabled={disabled}
             onChange={onChange}
         />
     );

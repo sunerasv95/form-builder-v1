@@ -72,25 +72,24 @@ const FormElementBuilder = ({
     };
 
     return (
-        <div className="flex flex-col bg-[#f7f8fa] p-5 mb-3 rounded-lg w-full shadow">
+        <div className="flex flex-col bg-[#ffffff] p-5 mb-3 rounded-lg w-full shadow">
             <div className="flex justify-between items-center">
-                {/* <label className="font-bold text-xl">Your name</label> */}
-                <input
-                    key={id}
+                <TextInput
                     id={`lbl-${id}`}
-                    type="text"
-                    className="mt-2 py-3 rounded-lg outline-none text-base w-full bg-[#f7f8fa]"
                     value={labelName}
                     placeholder="Enter label name"
-                    onChange={(e) => onChange({ labelName: e.target.value })} />
-                <div className="flex items-center gap-4">
+                    disabled={false}
+                    borderLess={true}
+                    onChange={(e) => onChange({ labelName: e.target.value })}
+                />
+                <div className="flex items-center gap-2">
                     <input
                         id={`rqd-${id}`}
                         type="checkbox"
                         checked={required}
                         onChange={() => onChange({ required: !required })}
                     />
-                    <label htmlFor={`rqd-${id}`}>Required</label>
+                    <label className="pr-3" htmlFor={`rqd-${id}`}>Required</label>
                     <ButtonIcon onClick={onDelete}>
                         <Trash size={16} color="black" />
                     </ButtonIcon>
